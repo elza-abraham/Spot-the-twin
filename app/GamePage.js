@@ -62,8 +62,9 @@ class GamePage extends React.Component {
       <div id ="main-containter">
         <div><h4>Points: {this.state.points} </h4></div>
         <Timer />
+        <h3  className="smiley"> This is your card </h3>
         <div id="game-table">
-          <div id = "card">
+          <div id = "playerCard">
             {
               this.state.playerCard1.map((word, idx) =>
                 <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}} onClick={this.handleClick}>{word}</div>
@@ -72,7 +73,7 @@ class GamePage extends React.Component {
           <div id = "card">
             {
               this.state.playerCard2.map((word, idx) =>
-                <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}}>{word}</div>
+                <div className="non-player-square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}}>{word}</div>
             )}
           </div>
         </div>

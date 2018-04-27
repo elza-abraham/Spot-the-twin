@@ -21,7 +21,8 @@
 
 #game-table {
   display: flex;
-  border: 1px solid black;
+  /* background: deeppink; */
+  /* border: 1px solid black; */
   justify-content: space-around;
   flex-direction: row;
   margin: 20px;
@@ -31,6 +32,15 @@
 
 #card {
   display: flex;
+  background: rgb(166, 207, 241);
+  width: 325px;
+  border: 1px solid black;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#playerCard {
+  display: flex;
+  background: pink;
   width: 325px;
   border: 1px solid black;
   align-items: center;
@@ -50,6 +60,19 @@
   word-wrap: break-word;
 }
 .square:hover {background-color: rgb(214, 216, 202);}
+
+.non-player-square {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgb(49, 70, 187);
+  font-size: 2em;
+  font-weight: bold;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  word-wrap: break-word;
+}
 
 form {
   display: flex;
@@ -73,15 +96,37 @@ form input {
   margin: 0.5em 0;
   font-size: 1em;
 }
+
 .timer{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 #timer-button{
-  color: white;
+  color: rgb(204, 170, 199);
+
   border-radius: 50%;
   padding: 10px;
   font-size: 14px;
-  background-color: #59A9E9;
+  background-color: hsl(333, 13%, 50%);
+}
+
+.flash {
+  animation-name: flash;
+   animation-duration: 0.1s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-play-state: running;
+}
+
+@keyframes flash {
+   from {color: red;}
+   to {color: black;}
+}
+
+
+
+.smiley:after {
+  content: "\01F447";
 }

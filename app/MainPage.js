@@ -6,6 +6,7 @@ export default class MainPage extends Component {
     super()
     this.state = {
       cardArr: [],
+      errorMsg: '',
       word1: 'ran',
       word2: 'ate',
       word3: 'are',
@@ -55,6 +56,19 @@ export default class MainPage extends Component {
 
     const words = [this.state.word1, this.state.word2, this.state.word3, this.state.word4, this.state.word5, this.state.word6, this.state.word7, this.state.word8, this.state.word9, this.state.word10, this.state.word11, this.state.word12, this.state.word13 ]
 
+    const hasAllEntries = words.reduce((accumulator ,word ) => {
+      const trimmed = word.replace(/^\s\s*/, '').replace(/\s\s*$/, '')
+      return  accumulator && trimmed !== ''
+    }, true)
+
+    console.log(hasAllEntries)
+    if (!hasAllEntries) {
+      this.setState(
+        {
+          errorMsg: 'You may want to fill all boxes with words!!'
+        }
+      )
+    }
     const card1 = [words[0], words[1], words[2], words[9]]
     const card2 = [words[9], words[3], words[4], words[5]]
     const card3 = [words[8], words[9], words[6], words[7]]
@@ -87,51 +101,51 @@ export default class MainPage extends Component {
     console.log("current state", this.state)
     return (
       <div  id="container">
-        <h3> Replace the words as required</h3>
-        <form onSubmit={this.handleSubmit}>
-              <div  className="form-item">
-                <input type= "text" name ="word1" value={this.state.word1} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="Word2" value={this.state.word2} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word3" value={this.state.word3} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word4" value={this.state.word4} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word5" value={this.state.word5} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                {/* <label htmlFor="word6">Word6</label> */}
-                <input type= "text" name ="word6" value={this.state.word6} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word7" value={this.state.word7} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word8" value={this.state.word8} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word9" value={this.state.word9} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word10" value={this.state.word10} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word11" value={this.state.word11} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word12" value={this.state.word12} onChange={this.handleChange} />
-              </div>
-              <div  className="form-item">
-                <input type= "text" name ="word13" value={this.state.word13} onChange={this.handleChange} />
-              </div>
-            <div>
-              <button type= "submit">Submit</button>
-            </div>
+        <h3> Replace the words as required or start playing</h3>
+        <form onSubmit={this.handleSubmit} >
+          <div  className="form-item">
+            <input type= "text" name ="word1" value={this.state.word1} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="Word2" value={this.state.word2} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word3" value={this.state.word3} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word4" value={this.state.word4} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word5" value={this.state.word5} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            {/* <label htmlFor="word6">Word6</label> */}
+            <input type= "text" name ="word6" value={this.state.word6} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word7" value={this.state.word7} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word8" value={this.state.word8} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word9" value={this.state.word9} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word10" value={this.state.word10} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word11" value={this.state.word11} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word12" value={this.state.word12} onChange={this.handleChange} />
+          </div>
+          <div  className="form-item">
+            <input type= "text" name ="word13" value={this.state.word13} onChange={this.handleChange} />
+          </div>
+          <div>
+            <button type= "submit">Use my new words</button>
+          </div><h3 style={{color: 'orange'}}>{'     '}{this.state.errorMsg}</h3>
         </form>
         <GamePage cardArr={this.state.cardArr} />
       </div>

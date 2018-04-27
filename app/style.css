@@ -32,7 +32,7 @@
 
 #card {
   display: flex;
-  background: rgb(166, 207, 241);
+  background: rgb(182, 214, 240);
   width: 325px;
   border: 1px solid black;
   align-items: center;
@@ -40,7 +40,7 @@
 }
 #playerCard {
   display: flex;
-  background: pink;
+  background: rgb(236, 181, 236);
   width: 325px;
   border: 1px solid black;
   align-items: center;
@@ -59,7 +59,7 @@
   text-align: center;
   word-wrap: break-word;
 }
-.square:hover {background-color: rgb(214, 216, 202);}
+.square:hover {background-color: rgb(245, 166, 230);}
 
 .non-player-square {
   display: flex;
@@ -79,6 +79,7 @@ form {
   border: 1px solid black;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around
 }
 
 form button {
@@ -125,7 +126,10 @@ form input {
    to {color: black;}
 }
 
+input {
+  width: 100px;
 
+}
 
 .smiley:after {
   content: "\01F447";

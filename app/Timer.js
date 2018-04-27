@@ -59,7 +59,7 @@ export default class Timer extends React.Component {
   render() {
     return (
       <div className="timer">
-        <h1 class="flash">{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}
+        <h1 className="flash">{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}
         <button id= "timer-button" onClick={this.startTimer}>Start Timer</button></h1>
       </div>
     );

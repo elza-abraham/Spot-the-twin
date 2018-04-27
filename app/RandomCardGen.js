@@ -1,13 +1,16 @@
-randomCards = () => {
-  let newArr = this.shuffleCardArray()
+const shuffleCardArray = (cardArr) => {
+  // const arrayToShuffle = this.state.cardArr;
+  for (let i = cardArr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [cardArr[i], cardArr[j]] = [cardArr[j], cardArr[i]];
+  }
+  console.log("random cards are", cardArr)
+  return cardArr;
+}
+const randomCards = (cardArr) => {
+  let newArr = shuffleCardArray(cardArr)
   return [newArr[0], newArr[1]]
 }
 
-shuffleCardArray = () => {
-  const arrayToShuffle = this.state.cardArr;
-  for (let i = arrayToShuffle.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [arrayToShuffle[i], arrayToShuffle[j]] = [arrayToShuffle[j], arrayToShuffle[i]];
-  }
-  return arrayToShuffle;
-}
+
+export default randomCards

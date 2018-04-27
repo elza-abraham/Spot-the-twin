@@ -1,5 +1,6 @@
 import React from 'react'
 import Timer from './Timer'
+import randomCards from './RandomCardGen'
 
 class GamePage extends React.Component {
   constructor() {
@@ -29,7 +30,8 @@ class GamePage extends React.Component {
       this.setState({
         selectedWord: selected
       })
-      let newCards = this.randomCards()
+      // let newCards = this.randomCards()
+      let newCards = randomCards(this.state.cardArr)
       setTimeout(() => {
         this.setState(
           {
@@ -43,26 +45,12 @@ class GamePage extends React.Component {
     }
   }
 
-  randomCards = () => {
-    let newArr = this.shuffleCardArray()
-    return [newArr[0], newArr[1]]
-  }
-
-  shuffleCardArray = () => {
-    const arrayToShuffle = this.state.cardArr;
-    for (let i = arrayToShuffle.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [arrayToShuffle[i], arrayToShuffle[j]] = [arrayToShuffle[j], arrayToShuffle[i]];
-    }
-    return arrayToShuffle;
-  }
-
   render () {
     return (
       <div id ="main-containter">
-        <div><h4>Points: {this.state.points} </h4></div>
+        <div><h4>Score: {this.state.points} </h4></div>
         <Timer />
-        <h3  className="smiley"> This is your card </h3>
+        <h3  className="smiley"> Your card </h3>
         <div id="game-table">
           <div id = "playerCard">
             {

@@ -1,41 +1,45 @@
 import React from 'react'
+import Timer from './Timer'
+
 class GamePage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.card1 = ['ran', 'ate', 'are', 'what']
-    this.card2 = ['with', 'all', 'but', 'ran']
-    this.card3 = ['what', 'all', 'she', 'be']
-    this.card4 = ['all', 'yes', 'ate', 'this']
-    this.card5 = ['ate', 'that', 'be', 'but']
-    this.card6 = ['this', 'be', 'ran', 'am']
-    this.card7 = ['but', 'yes', 'what','am']
-    this.card8 = ['are', 'yes', 'be', 'with']
-    this.card9 = ['am', 'all', 'that', 'are']
-    this.card10 = ['ran', 'yes', 'she', 'that']
-    this.card11 = ['that', 'will', 'what', 'this']
-    this.card12 = ['are', 'she', 'but', 'this']
-    this.card13 = ['ate','with', 'am', 'she']
+  constructor() {
+    super()
     this.state = {
-      cardArr: [this.card1, this.card2, this.card3, this.card4, this.card5, this.card6, this.card7, this.card8, this.card9, this.card10, this.card11, this.card12, this.card13],
-      playerCard1: this.card1,
-      playerCard2: this.card2,
-      points: 0
+      cardArr: [],
+      playerCard1: [],
+      playerCard2: [],
+      points: 0,
+      selectedWord: ''
     }
   }
+
+  componentWillReceiveProps = (props) => {
+    this.setState({
+      cardArr: props.cardArr,
+      playerCard1: props.cardArr[0],
+      playerCard2: props.cardArr[1]
+    });
+  }
+
   handleClick = (event) => {
-    console.log('current clicked column', event.target.textContent)
-    console.log(this.state.playerCard2)
+    // console.log('current clicked column', event.target.textContent)
+
     const selected = event.target.textContent
     if (this.state.playerCard2.indexOf(selected) > -1) {
-      console.log("match found");
+      this.setState({
+        selectedWord: selected
+      })
       let newCards = this.randomCards()
-      this.setState(
-        {
-          points: this.state.points + 1,
-          playerCard1: newCards[0],
-          playerCard2: newCards[1]
-        }
-      )
+      setTimeout(() => {
+        this.setState(
+          {
+            points: this.state.points + 1,
+            playerCard1: newCards[0],
+            playerCard2: newCards[1],
+            selectedWord: ''
+          }
+        )
+      }, 500)
     }
   }
 
@@ -55,19 +59,20 @@ class GamePage extends React.Component {
 
   render () {
     return (
-      <div id="container">
-        <div>{this.state.points}</div>
-        <div id='game-table'>
+      <div id ="main-containter">
+        <div><h4>Points: {this.state.points} </h4></div>
+        <Timer />
+        <div id="game-table">
           <div id = "card">
             {
               this.state.playerCard1.map((word, idx) =>
-              <div style={{margin: '10px'}} className="square" key= {idx} onClick={this.handleClick}>{word}</div>
+                <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}} onClick={this.handleClick}>{word}</div>
             )}
           </div>
           <div id = "card">
             {
               this.state.playerCard2.map((word, idx) =>
-              <div style={{margin: '10px'}} className="square" key= {idx} onClick={this.handleClick}>{word}</div>
+                <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}}>{word}</div>
             )}
           </div>
         </div>

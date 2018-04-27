@@ -15,29 +15,36 @@ class GamePage extends React.Component {
   }
 
   componentWillReceiveProps = (props) => {
-    this.setState({
-      cardArr: props.cardArr,
-      playerCard1: props.cardArr[0],
-      playerCard2: props.cardArr[1]
-    });
+    console.log('gamepage component will receive', this.props.shouldChildChange)
+    if (props.shouldChildChange){
+      // this.setState({
+      //   cardArr: props.cardArr,
+      //   playerCard1: props.cardArr[0],
+      //   playerCard2: props.cardArr[1]
+      // })
+      const [playerCard1, playerCard2] = randomCards(props.cardArr)
+      this.setState({
+        cardArr: props.cardArr,
+        playerCard1,
+        playerCard2
+      })
+    }
   }
 
   handleClick = (event) => {
-    // console.log('current clicked column', event.target.textContent)
 
     const selected = event.target.textContent
     if (this.state.playerCard2.indexOf(selected) > -1) {
       this.setState({
         selectedWord: selected
       })
-      // let newCards = this.randomCards()
-      let newCards = randomCards(this.state.cardArr)
+      const [playerCard1, playerCard2] = randomCards(this.state.cardArr)
       setTimeout(() => {
         this.setState(
           {
             points: this.state.points + 1,
-            playerCard1: newCards[0],
-            playerCard2: newCards[1],
+            playerCard1,
+            playerCard2,
             selectedWord: ''
           }
         )

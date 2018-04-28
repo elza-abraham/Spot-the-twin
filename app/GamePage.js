@@ -63,10 +63,10 @@ class GamePage extends React.Component {
           <div id = "playerCard">
             {
               this.state.playerCard1.map((word, idx) =>
-                <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(207, 238, 232)' : ''}} onClick={this.handleClick}>{word}</div>
+                <div className="player-square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(207, 238, 232)' : ''}} onClick={this.handleClick}>{word}</div>
             )}
           </div>
-          <div id = "card">
+          <div id = "non-player-card">
             {
               this.state.playerCard2.map((word, idx) =>
                 <div className="non-player-square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(207, 238, 232)' : ''}}>{word}</div>

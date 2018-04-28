@@ -16,18 +16,16 @@
 
 #game-table {
   display: flex;
-  /* width: 100%; */
   justify-content: space-around;
   flex-direction: row;
   top: 20px;
 }
 
 
-#card {
+#non-player-card {
   display: flex;
   background: rgb(182, 214, 240);
-  width: 325px;
-  /* width: 25%; */
+  width: 275px;
   border: 1px solid black;
   align-items: center;
   flex-wrap: wrap;
@@ -35,17 +33,16 @@
 #playerCard {
   display: flex;
   background: rgb(236, 181, 236);
-  width: 325px;
-  /* width: 25%; */
+  width: 275px;
   border: 1px solid black;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.square {
+.player-square {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   border: 1px solid rgb(49, 70, 187);
   font-size: 1.5em;
   font-weight: bold;
@@ -58,8 +55,8 @@
 
 .non-player-square {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   border: 1px solid rgb(49, 70, 187);
   font-size: 2em;
   font-weight: bold;
@@ -105,6 +102,13 @@ form input {
   padding: 10px;
   font-size: 14px;
   background-color: hsl(333, 13%, 50%);
+}
+
+#reset-button{
+  display: flex;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #59A9E9;
 }
 
 .flash {

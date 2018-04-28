@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import GamePage from './GamePage'
 import createCards from './CardGenerator'
 import randomCards from './RandomCardGen'
+import {Link} from 'react-router-dom'
 
 export default class MainPage extends Component {
   constructor () {
@@ -71,7 +72,8 @@ export default class MainPage extends Component {
   render () {
     return (
       <div  id="container">
-        <h3> Replace the words as required or start playing         </h3>
+        <h3> Replace the words as required or start playing OR...<Link to={`/image-game`}>Play with images
+              </Link>       </h3>
         <form onSubmit={this.handleSubmit} >
           <div  className="form-item">
             <input type= "text" name ="word1" maxLength="6" value={this.state.word1} onChange={this.handleChange} />

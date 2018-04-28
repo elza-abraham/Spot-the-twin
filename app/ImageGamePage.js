@@ -1,6 +1,7 @@
 import React from 'react'
 import randomCards from './RandomCardGen'
 import createCards from './CardGenerator'
+import {Link} from 'react-router-dom'
 
 // still working... just basic...
 class ImageGamePage extends React.Component {
@@ -83,6 +84,7 @@ class ImageGamePage extends React.Component {
         <div>
           <button id= "reset-button" onClick={this.handleReset}>Reset Game</button>
         </div>
+        <div><Link to='/'>Back</Link></div>
     </div>
     )
   }

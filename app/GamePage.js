@@ -9,22 +9,17 @@ class GamePage extends React.Component {
       cardArr: [],
       playerCard1: [],
       playerCard2: [],
-      points: 0,
+      score: 0,
       selectedWord: ''
     }
   }
 
   componentWillReceiveProps = (props) => {
-    console.log('gamepage component will receive', this.props.shouldChildChange)
     if (props.shouldChildChange){
-      // this.setState({
-      //   cardArr: props.cardArr,
-      //   playerCard1: props.cardArr[0],
-      //   playerCard2: props.cardArr[1]
-      // })
       const [playerCard1, playerCard2] = randomCards(props.cardArr)
       this.setState({
         cardArr: props.cardArr,
+        score: 0,
         playerCard1,
         playerCard2
       })
@@ -42,7 +37,7 @@ class GamePage extends React.Component {
       setTimeout(() => {
         this.setState(
           {
-            points: this.state.points + 1,
+            score: this.state.score + 1,
             playerCard1,
             playerCard2,
             selectedWord: ''
@@ -52,23 +47,29 @@ class GamePage extends React.Component {
     }
   }
 
+  resetGame = () => {
+    this.setState({
+      score: 0
+    })
+  }
+
   render () {
     return (
       <div id ="main-containter">
-        <div><h4>Score: {this.state.points} </h4></div>
-        <Timer />
+        <h4>Score: {this.state.score} </h4>
+        <Timer resetGame={this.resetGame} />
         <h3  className="smiley"> Your card </h3>
         <div id="game-table">
           <div id = "playerCard">
             {
               this.state.playerCard1.map((word, idx) =>
-                <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}} onClick={this.handleClick}>{word}</div>
+                <div className="square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(207, 238, 232)' : ''}} onClick={this.handleClick}>{word}</div>
             )}
           </div>
           <div id = "card">
             {
               this.state.playerCard2.map((word, idx) =>
-                <div className="non-player-square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(118, 206, 204)' : ''}}>{word}</div>
+                <div className="non-player-square" key= {idx}  style={{backgroundColor: (this.state.selectedWord === word) ? 'rgb(207, 238, 232)' : ''}}>{word}</div>
             )}
           </div>
         </div>

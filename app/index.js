@@ -1,9 +1,22 @@
+// import React from 'react'
+// import ReactDOM from 'react-dom'
+// import {Route} from 'react-router-dom'
+// import MainPage from './MainPage'
+
+// ReactDOM.render(
+//   <MainPage />,
+//   document.getElementById('app')
+// )
+
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import GamePage from './GamePage'
-import MainPage from './MainPage'
+import Main from './Main'
+import {HashRouter as Router} from 'react-router-dom'
 
 ReactDOM.render(
-  <MainPage />,
+  <Router>
+    <Main />
+  </Router>,
   document.getElementById('app')
 )

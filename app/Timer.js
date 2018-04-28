@@ -34,6 +34,7 @@ export default class Timer extends React.Component {
   }
 
   startTimer = () => {
+    this.props.resetGame();
     this.setState({
       showTimer: true,
       timerMsg: ''
@@ -44,15 +45,13 @@ export default class Timer extends React.Component {
   }
 
   countDown = () => {
-    // Remove one second, set state so a re-render happens.
+    // for re rendering.
     let seconds = this.state.seconds - 1;
     this.setState({
       time: this.secondsToTime(seconds),
-      // time: seconds,
       seconds: seconds,
     });
 
-    // Check if we're at zero.
     if (seconds === 0) {
       this.setState({
         timerMsg: 'Time up!!'
@@ -70,7 +69,6 @@ export default class Timer extends React.Component {
   render() {
     return (
       <div className="timer">
-
         <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.s}{'       '}</h1>
         {/* <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}</h1> */}
         <button id= "timer-button" onClick={this.startTimer}>Start Timer</button>

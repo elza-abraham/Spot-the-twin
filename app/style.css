@@ -1,7 +1,6 @@
 * {
   margin:5px;
   padding: 0;
-  /* box-sizing: border-box; */
 }
 
 #container {
@@ -17,6 +16,7 @@
 
 #game-table {
   display: flex;
+  /* width: 100%; */
   justify-content: space-around;
   flex-direction: row;
   top: 20px;
@@ -27,6 +27,7 @@
   display: flex;
   background: rgb(182, 214, 240);
   width: 325px;
+  /* width: 25%; */
   border: 1px solid black;
   align-items: center;
   flex-wrap: wrap;
@@ -35,6 +36,7 @@
   display: flex;
   background: rgb(236, 181, 236);
   width: 325px;
+  /* width: 25%; */
   border: 1px solid black;
   align-items: center;
   flex-wrap: wrap;
@@ -45,14 +47,14 @@
   width: 150px;
   height: 150px;
   border: 1px solid rgb(49, 70, 187);
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   word-wrap: break-word;
 }
-.square:hover {background-color: rgb(245, 166, 230);}
+.square:hover {background-color: rgb(228, 207, 238);}
 
 .non-player-square {
   display: flex;
@@ -124,7 +126,7 @@ form input {
 }
 
 input {
-  width: 75px;
+  width: 65px;
 
 }
 

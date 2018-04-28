@@ -10,6 +10,7 @@ export default class MainPage extends Component {
       cardArr: [],
       shouldChildChange: true,
       errorMsg: '',
+      warningMsg: '',
       flagToSendProps: true,
       word1: 'ran', word2: 'ate', word3: 'are', word4: 'what', word5: 'with',
       word6: 'all', word7: 'but',  word8: 'she',  word9: 'be', word10: 'yes',
@@ -18,7 +19,6 @@ export default class MainPage extends Component {
   }
 
   componentDidMount() {
-    console.log("main component did mout")
     const words = [this.state.word1, this.state.word2, this.state.word3, this.state.word4, this.state.word5, this.state.word6, this.state.word7, this.state.word8, this.state.word9, this.state.word10, this.state.word11, this.state.word12, this.state.word13 ]
 
     const cardArr = createCards(words)
@@ -53,6 +53,7 @@ export default class MainPage extends Component {
     this.setState(
       {
         cardArr,
+        warningMsg: '',
         shouldChildChange: true
       }
     )
@@ -60,13 +61,14 @@ export default class MainPage extends Component {
 
   handleChange = (event) => {
     this.setState({
+      errorMsg: '',
       shouldChildChange: false,
+      warningMsg: 'Click Reset Game after changing',
       [event.target.name]: event.target.value
     })
   }
 
   render () {
-    // console.log("current state", this.state)
     return (
       <div  id="container">
         <h3> Replace the words as required or start playing         </h3>
@@ -111,8 +113,9 @@ export default class MainPage extends Component {
             <input type= "text" name ="word13" maxLength="6" value={this.state.word13} onChange={this.handleChange} />
           </div>
           <div>
-            <button type= "submit">Change</button>
-          </div><h3 style={{color: 'orange'}}>{'     '}{this.state.errorMsg}</h3>
+            <button type= "submit">Reset Game</button> {this.state.warningMsg}
+            <span style={{color: 'orange'}}>{this.state.errorMsg}</span>
+          </div>
         </form>
         <GamePage cardArr={this.state.cardArr} shouldChildChange={this.state.shouldChildChange} />
       </div>

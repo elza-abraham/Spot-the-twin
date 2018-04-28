@@ -4,7 +4,6 @@ const shuffleCardArray = (cardArr) => {
     let j = Math.floor(Math.random() * (i + 1));
     [cardArr[i], cardArr[j]] = [cardArr[j], cardArr[i]];
   }
-  console.log("random cards are", cardArr)
   return cardArr;
 }
 const randomCards = (cardArr) => {

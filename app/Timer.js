@@ -5,8 +5,9 @@ export default class Timer extends React.Component {
     super();
     this.state = {
       time: {},
-      seconds: 60,
-      timerMsg: ''
+      seconds: 30,
+      timerMsg: '',
+      showTimer: false
     };
     this.timer = 0;
   }
@@ -27,12 +28,17 @@ export default class Timer extends React.Component {
   }
 
   componentDidMount() {
-    let timeLeft = this.secondsToTime(this.state.seconds);
+    // let timeLeft = this.secondsToTime(this.state.seconds);
+    let timeLeft = this.state.seconds;
     this.setState({ time: timeLeft });
   }
 
   startTimer = () => {
-    if (this.timer == 0) {
+    this.setState({
+      showTimer: true,
+      timerMsg: ''
+    })
+    if (this.timer === 0) {
       this.timer = setInterval(this.countDown, 1000);
     }
   }
@@ -42,23 +48,32 @@ export default class Timer extends React.Component {
     let seconds = this.state.seconds - 1;
     this.setState({
       time: this.secondsToTime(seconds),
+      // time: seconds,
       seconds: seconds,
     });
 
     // Check if we're at zero.
     if (seconds === 0) {
       this.setState({
-        timerMsg: "Time up!!"
+        timerMsg: 'Time up!!'
       })
+
       clearInterval(this.timer);
+      this.timer = 0;
+      this.setState({
+        time: {},
+        seconds: 30,
+      })
     }
   }
 
   render() {
     return (
       <div className="timer">
-        <h1 className="flash">{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}
-        <button id= "timer-button" onClick={this.startTimer}>Start Timer</button></h1>
+
+        <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.s}{'       '}</h1>
+        {/* <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}</h1> */}
+        <button id= "timer-button" onClick={this.startTimer}>Start Timer</button>
       </div>
     );
   }

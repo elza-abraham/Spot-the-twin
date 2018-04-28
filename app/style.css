@@ -97,8 +97,8 @@ form input {
   justify-content: flex-end;
 }
 #timer-button{
+  display: flex;
   color: rgb(204, 170, 199);
-
   border-radius: 50%;
   padding: 10px;
   font-size: 14px;
@@ -107,11 +107,15 @@ form input {
 
 .flash {
   animation-name: flash;
-   animation-duration: 0.1s;
-   animation-timing-function: linear;
-   animation-iteration-count: infinite;
-   animation-direction: alternate;
-   animation-play-state: running;
+  animation-duration: 0.1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}
+
+.timer .content-hidden {
+  display: none;
 }
 
 @keyframes flash {

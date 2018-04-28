@@ -69,13 +69,13 @@ export default class MainPage extends Component {
     // console.log("current state", this.state)
     return (
       <div  id="container">
-        <h3> Replace the words as required or start playing</h3>
+        <h3> Replace the words as required or start playing         </h3>
         <form onSubmit={this.handleSubmit} >
           <div  className="form-item">
             <input type= "text" name ="word1" maxLength="6" value={this.state.word1} onChange={this.handleChange} />
           </div>
           <div  className="form-item">
-            <input type= "text" name ="Word2" maxLength="6" value={this.state.word2} onChange={this.handleChange} />
+            <input type= "text" name ="word2" maxLength="6" value={this.state.word2} onChange={this.handleChange} />
           </div>
           <div  className="form-item">
             <input type= "text" name ="word3" maxLength="6" value={this.state.word3} onChange={this.handleChange} />

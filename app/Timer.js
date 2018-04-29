@@ -5,14 +5,14 @@ export default class Timer extends React.Component {
     super();
     this.state = {
       time: {},
-      seconds: 30,
+      seconds: 5,
       timerMsg: '',
       showTimer: false
     };
     this.timer = 0;
   }
 
-  secondsToTime(secs){
+  secondsRemaining(secs){
     const hours = Math.floor(secs / (60 * 60));
     const divisor_for_minutes = secs % (60 * 60);
     const minutes = Math.floor(divisor_for_minutes / 60);
@@ -28,7 +28,7 @@ export default class Timer extends React.Component {
   }
 
   componentDidMount() {
-    // let timeLeft = this.secondsToTime(this.state.seconds);
+
     let timeLeft = this.state.seconds;
     this.setState({ time: timeLeft });
   }
@@ -45,23 +45,23 @@ export default class Timer extends React.Component {
   }
 
   countDown = () => {
-    // for re rendering.
+
     let seconds = this.state.seconds - 1;
     this.setState({
-      time: this.secondsToTime(seconds),
+      time: this.secondsRemaining(seconds),
       seconds: seconds,
     });
 
     if (seconds === 0) {
       this.setState({
-        timerMsg: 'Time up!!'
+        timerMsg: 'Time Up!!'
       })
 
       clearInterval(this.timer);
       this.timer = 0;
       this.setState({
         time: {},
-        seconds: 30,
+        seconds: 5,
       })
     }
   }
@@ -69,9 +69,13 @@ export default class Timer extends React.Component {
   render() {
     return (
       <div className="timer">
-        <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.s}{'       '}</h1>
+        <div className="timer-child">
+          <h2 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.s}{'       '}</h2>
+        </div>
         {/* <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}</h1> */}
-        <button id= "timer-button" onClick={this.startTimer}>Start Timer</button>
+        <div className="timer-child">
+          <button id= "timer-button" onClick={this.startTimer}>Timer</button>
+        </div>
       </div>
     );
   }

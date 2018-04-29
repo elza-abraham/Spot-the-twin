@@ -64,7 +64,7 @@ export default class MainPage extends Component {
     this.setState({
       errorMsg: '',
       shouldChildChange: false,
-      warningMsg: 'Click Reset Game after changing',
+      warningMsg: 'Click New Game after changing',
       [event.target.name]: event.target.value
     })
   }
@@ -72,8 +72,8 @@ export default class MainPage extends Component {
   render () {
     return (
       <div  id="container">
-        <h3> Replace the words as required or start playing OR...<Link to={`/image-game`}>Play with images
-              </Link>       </h3>
+        <h4> Replace the words as required or start playing OR...<Link to={`/image-game`}>Play with images
+              </Link>       </h4>
         <form onSubmit={this.handleSubmit} >
           <div  className="form-item">
             <input type= "text" name ="word1" maxLength="6" value={this.state.word1} onChange={this.handleChange} />
@@ -115,7 +115,7 @@ export default class MainPage extends Component {
             <input type= "text" name ="word13" maxLength="6" value={this.state.word13} onChange={this.handleChange} />
           </div>
           <div>
-            <button type= "submit">Reset Game</button> {this.state.warningMsg}
+            <button type= "submit">New Game</button> {this.state.warningMsg}
             <span style={{color: 'orange'}}>{this.state.errorMsg}</span>
           </div>
         </form>

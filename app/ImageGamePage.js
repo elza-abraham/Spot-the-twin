@@ -3,7 +3,6 @@ import randomCards from './RandomCardGen'
 import createCards from './CardGenerator'
 import {Link} from 'react-router-dom'
 
-// still working... just basic...
 class ImageGamePage extends React.Component {
   constructor(props) {
     super(props)
@@ -52,6 +51,7 @@ class ImageGamePage extends React.Component {
 
   handleReset = () => {
     let [playerCard1, playerCard2] = randomCards(this.state.cardArr)
+
     this.setState(
       {
         score: 0,
@@ -64,7 +64,10 @@ class ImageGamePage extends React.Component {
   render () {
     return (
       <div id="main-container">
-        <h4>Score: {this.state.score} </h4>
+        <div id="game-table">
+          <h3 className="emoji">Your card </h3>
+          <h4>Score: {this.state.score} </h4>
+        </div>
         <div id="game-table">
           <div id = "playerCard">
             {
@@ -76,7 +79,7 @@ class ImageGamePage extends React.Component {
           <div id = "non-player-card">
             {
               this.state.playerCard2.map((word, idx) =>
-              <img  className="non-player-square" key= {idx} src={word}/>
+              <img  className="non-player-square" key= {idx} src={word} />
               // <div className="non-player-square" key= {idx}>{word}</div>
             )}
           </div>
@@ -84,7 +87,7 @@ class ImageGamePage extends React.Component {
         <div>
           <button id= "reset-button" onClick={this.handleReset}>Reset Game</button>
         </div>
-        <div><Link to='/'>Back</Link></div>
+        <div><Link to="/">Back</Link></div>
     </div>
     )
   }

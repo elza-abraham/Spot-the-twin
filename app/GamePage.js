@@ -56,9 +56,11 @@ class GamePage extends React.Component {
   render () {
     return (
       <div id ="main-containter">
-        <h4>Score: {this.state.score} </h4>
-        <Timer resetGame={this.resetGame} />
-        <h3  className="smiley"> Your card </h3>
+         <Timer resetGame={this.resetGame} />
+        <div id="game-table">
+          <h3 className="emoji"> Your card </h3>
+          <h4>Score: {this.state.score} </h4>
+        </div>
         <div id="game-table">
           <div id = "playerCard">
             {

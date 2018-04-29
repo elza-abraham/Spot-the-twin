@@ -21,6 +21,14 @@
   top: 20px;
 }
 
+#playerCard {
+  display: flex;
+  background: rgb(224, 171, 224);
+  width: 275px;
+  border: 1px solid black;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 #non-player-card {
   display: flex;
@@ -31,20 +39,12 @@
   flex-wrap: wrap;
 }
 
-#playerCard {
-  display: flex;
-  background: rgb(216, 148, 216);
-  width: 275px;
-  border: 1px solid black;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 .player-square {
   display: flex;
   width: 125px;
   height: 125px;
-  border: 1px solid rgb(235, 200, 238);
+  border: 1px solid rgb(7, 7, 7);
   font-size: 1.5em;
   font-weight: bold;
   flex-direction: column;
@@ -58,7 +58,7 @@
   display: flex;
   width: 125px;
   height: 125px;
-  border: 1px solid rgb(49, 70, 187);
+  border: 1px solid rgb(9, 9, 12);
   font-size: 2em;
   font-weight: bold;
   flex-direction: column;
@@ -72,7 +72,8 @@ form {
   border: 1px solid black;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between
+  justify-content: flex-start
+  /* justify-content: space-between */
 }
 
 form button {
@@ -92,10 +93,22 @@ form input {
 }
 
 .timer{
+
   display: flex;
+  justify-content: space-around;
   flex-direction: row;
-  justify-content: flex-end;
+  top: 20px;
 }
+
+.timer-child {
+  display: flex;
+  width: 30%;
+  align-items: right;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
 #timer-button{
   display: flex;
   color: rgb(204, 170, 199);
@@ -135,6 +148,6 @@ input {
 
 }
 
-.smiley:after {
+.emoji:after {
   content: "\01F447";
 }

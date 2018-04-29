@@ -63,7 +63,7 @@ class ImageGamePage extends React.Component {
 
   render () {
     return (
-      <div id="main-container">
+      <div id="container">
         <div id="game-table">
           <h3 className="emoji">Your card </h3>
           <h4>Score: {this.state.score} </h4>
@@ -73,14 +73,12 @@ class ImageGamePage extends React.Component {
             {
               this.state.playerCard1.map((word, idx) =>
               <img  className="player-square" key= {idx} src={word}  onClick={this.handleClick} />
-              // <div className="player-square"  onClick={this.handleClick}><img src={word} /></div>
             )}
           </div>
           <div id = "non-player-card">
             {
               this.state.playerCard2.map((word, idx) =>
               <img  className="non-player-square" key= {idx} src={word} />
-              // <div className="non-player-square" key= {idx}>{word}</div>
             )}
           </div>
         </div>

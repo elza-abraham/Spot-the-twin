@@ -5,6 +5,7 @@ const shuffleCardArray = (cardArr) => {
   }
   return cardArr;
 }
+
 const randomCards = (cardArr) => {
   let newArr = shuffleCardArray(cardArr)
   return [newArr[0], newArr[6]]

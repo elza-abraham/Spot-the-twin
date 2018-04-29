@@ -19,9 +19,9 @@ class GamePage extends React.Component {
       const [playerCard1, playerCard2] = randomCards(props.cardArr)
       this.setState({
         cardArr: props.cardArr,
-        score: 0,
         playerCard1,
-        playerCard2
+        playerCard2,
+        score: 0
       })
     }
   }
@@ -37,9 +37,9 @@ class GamePage extends React.Component {
       setTimeout(() => {
         this.setState(
           {
-            score: this.state.score + 1,
             playerCard1,
             playerCard2,
+            score: this.state.score + 1,
             selectedWord: ''
           }
         )
@@ -56,7 +56,7 @@ class GamePage extends React.Component {
   render () {
     return (
       <div id ="main-containter">
-         <Timer resetGame={this.resetGame} />
+        <Timer resetGame={this.resetGame} />
         <div id="game-table">
           <h3 className="emoji"> Your card </h3>
           <h4>Score: {this.state.score} </h4>

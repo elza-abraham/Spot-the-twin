@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import GamePage from './GamePage'
 import createCards from './CardGenerator'
-import randomCards from './RandomCardGen'
 import {Link} from 'react-router-dom'
 
 export default class MainPage extends Component {

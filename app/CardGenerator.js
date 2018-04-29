@@ -1,19 +1,19 @@
-const createCards = (words) => {
+const createCards = (wordArray) => {
   return [
     [
-      words[0], words[1], words[2], words[9]],
-      [words[9], words[3], words[4], words[5]],
-       [words[8], words[9], words[6], words[7]],
-        [words[0], words[10], words[3], words[6]],
-         [words[1], words[10], words[4], words[7]],
-          [words[8], words[2], words[10], words[5]],
-           [words[0], words[8], words[11], words[4]],
-            [words[1], words[11], words[5], words[6]],
-             [words[11], words[2], words[3], words[7]],
-              [words[0], words[12], words[5], words[7]],
-               [words[8], words[1], words[3], words[12]],
-                [words[12], words[2], words[4], words[6]],
-                 [words[9], words[10], words[11], words[12]]
+      wordArray[0], wordArray[1], wordArray[2], wordArray[9]],
+      [wordArray[9], wordArray[3], wordArray[4], wordArray[5]],
+       [wordArray[8], wordArray[9], wordArray[6], wordArray[7]],
+        [wordArray[0], wordArray[10], wordArray[3], wordArray[6]],
+         [wordArray[1], wordArray[10], wordArray[4], wordArray[7]],
+          [wordArray[8], wordArray[2], wordArray[10], wordArray[5]],
+           [wordArray[0], wordArray[8], wordArray[11], wordArray[4]],
+            [wordArray[1], wordArray[11], wordArray[5], wordArray[6]],
+             [wordArray[11], wordArray[2], wordArray[3], wordArray[7]],
+              [wordArray[0], wordArray[12], wordArray[5], wordArray[7]],
+               [wordArray[8], wordArray[1], wordArray[3], wordArray[12]],
+                [wordArray[12], wordArray[2], wordArray[4], wordArray[6]],
+                 [wordArray[9], wordArray[10], wordArray[11], wordArray[12]]
   ]
 }
 

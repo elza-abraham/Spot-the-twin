@@ -8,11 +8,6 @@
   flex-direction: column;
   top: 10px;
 }
-#main-container {
-  display: flex;
-  flex-direction: column;
-  top: 10px;
-}
 
 #game-table {
   display: flex;

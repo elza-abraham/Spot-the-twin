@@ -5,7 +5,7 @@ export default class Timer extends React.Component {
     super();
     this.state = {
       time: {},
-      seconds: 5,
+      seconds: 10,
       timerMsg: '',
       showTimer: false
     };
@@ -61,7 +61,7 @@ export default class Timer extends React.Component {
       this.timer = 0;
       this.setState({
         time: {},
-        seconds: 5,
+        seconds: 10,
       })
     }
   }
@@ -70,9 +70,8 @@ export default class Timer extends React.Component {
     return (
       <div className="timer">
         <div className="timer-child">
-          <h2 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.s}{'       '}</h2>
+          <h2 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.s}</h2>
         </div>
-        {/* <h1 className={this.state.showTimer ?  'flash' : 'content-hidden'}>{this.state.timerMsg} {this.state.time.m}:{this.state.time.s}{'       '}</h1> */}
         <div className="timer-child">
           <button id= "timer-button" onClick={this.startTimer}>Timer</button>
         </div>
